@@ -1,19 +1,23 @@
+import AnimatedGradientText from "./AnimatedGradientText";
+
 export default function HeroHeading() {
-    return (
-        <h1 className="max-w-3xl text-7xl font-black leading-[0.9] tracking-tight text-white xl:text-8xl">
+  return (
+    <div className="space-y-5">
+      <h1 className="leading-[0.9] tracking-[-0.05em]">
+        <div className="text-6xl font-black text-white xl:text-[5.5rem]">
+          Engineering
+        </div>
 
-            Building
-
-            <br />
-
-            <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-violet-400 bg-clip-text text-transparent">
-                Scalable
-            </span>
-
-            <br />
-
+        <div className="mt-1 text-6xl font-black xl:text-[5.5rem]">
+          <AnimatedGradientText>
             Software
+          </AnimatedGradientText>
+        </div>
 
-        </h1>
-    );
+        <div className="mt-1 text-6xl font-black text-white xl:text-[5.5rem]">
+          That Scales.
+        </div>
+      </h1>
+    </div>
+  );
 }

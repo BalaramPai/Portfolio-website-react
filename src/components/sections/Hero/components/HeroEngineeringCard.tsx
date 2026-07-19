@@ -1,27 +1,63 @@
+import { useRef } from "react";
+
+import CardBackground from "./EngineeringCard/CardBackground";
+import CardHeader from "./EngineeringCard/CardHeader";
+import JsonViewer from "./EngineeringCard/JsonViewer";
+import MetricsGrid from "./EngineeringCard/MetricsGrid";
+import MouseGlow from "./EngineeringCard/MouseGlow";
+import ProjectSwitcher from "./EngineeringCard/ProjectSwitcher";
+
 export default function HeroEngineeringCard() {
-    return (
-        <div className="relative h-[650px] rounded-[36px] border border-white/10 bg-gradient-to-b from-slate-900 to-slate-950 p-8 shadow-2xl">
+  const cardRef = useRef<HTMLDivElement>(null);
 
-            <div className="mb-10 flex items-center gap-3">
+  return (
+    <div
+      ref={cardRef}
+      className="
+        group
+        relative
+        overflow-hidden
+        rounded-[34px]
+        border
+        border-white/10
+        bg-[#0B1220]/90
+        shadow-[0_30px_120px_rgba(0,0,0,0.45)]
+        backdrop-blur-xl
+        transition-all
+        duration-500
+        group-hover:scale-[1.015]
+        group-hover:border-blue-500/20
+      "
+    >
+      {/* ADD THESE TWO DIVS HERE */}
 
-                <div className="h-3 w-3 rounded-full bg-red-400" />
+      <div className="pointer-events-none absolute inset-0 rounded-[34px] ring-1 ring-white/5" />
 
-                <div className="h-3 w-3 rounded-full bg-yellow-400" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/10 to-transparent" />
 
-                <div className="h-3 w-3 rounded-full bg-green-400" />
+      {/* EXISTING COMPONENTS */}
 
-            </div>
+      <CardBackground />
 
-            <div className="flex h-full items-center justify-center rounded-3xl border border-dashed border-slate-700 text-center text-slate-500">
+      <MouseGlow containerRef={cardRef} />
 
-                Engineering Visualization
+      <div className="relative z-10">
 
-                <br />
+        <CardHeader />
 
-                (Coming Next)
+        <div className="space-y-2 p-3">
 
-            </div>
+          <ProjectSwitcher />
+
+          <JsonViewer />
+
+          <MetricsGrid />
+
 
         </div>
-    );
+
+      </div>
+
+    </div>
+  );
 }

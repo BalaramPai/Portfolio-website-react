@@ -1,17 +1,21 @@
-import Button from "../../../common/Button";
+import MagneticButton from "../../../common/MagneticButton";
 
 export default function HeroActions() {
-    return (
-        <div className="flex gap-5">
+  return (
+    <div className="flex items-center gap-5 pt-3">
 
-            <Button>
-                View Projects
-            </Button>
+      <MagneticButton>
 
-            <Button variant="outline">
-                Download Resume
-            </Button>
+        View Projects
 
-        </div>
-    );
+      </MagneticButton>
+
+      <MagneticButton variant="secondary">
+
+        Download Resume
+
+      </MagneticButton>
+
+    </div>
+  );
 }
