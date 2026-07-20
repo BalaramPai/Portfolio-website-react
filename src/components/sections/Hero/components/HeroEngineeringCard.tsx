@@ -1,5 +1,7 @@
 import { useRef } from "react";
 
+import useSelectedProject from "../../../../hooks/useSelectedProject";
+
 import CardBackground from "./EngineeringCard/CardBackground";
 import CardHeader from "./EngineeringCard/CardHeader";
 import JsonViewer from "./EngineeringCard/JsonViewer";
@@ -9,6 +11,13 @@ import ProjectSwitcher from "./EngineeringCard/ProjectSwitcher";
 
 export default function HeroEngineeringCard() {
   const cardRef = useRef<HTMLDivElement>(null);
+
+  const {
+    project,
+    projects,
+    selectedIndex,
+    setSelectedIndex,
+  } = useSelectedProject();
 
   return (
     <div
@@ -38,12 +47,16 @@ export default function HeroEngineeringCard() {
       <MouseGlow containerRef={cardRef} />
 
       <div className="relative z-10">
-        <CardHeader />
+        <CardHeader project={project} />
 
         <div className="space-y-1.5 p-2.5">
-          <ProjectSwitcher />
+          <ProjectSwitcher
+            projects={projects}
+            selectedIndex={selectedIndex}
+            setSelectedIndex={setSelectedIndex}
+          />
 
-          <JsonViewer />
+          <JsonViewer project={project} />
 
           <MetricsGrid />
         </div>

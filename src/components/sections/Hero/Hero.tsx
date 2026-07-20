@@ -2,7 +2,6 @@ import Section from "../../layout/Section";
 
 import SocialLinks from "../../common/SocialLinks";
 
-import HeroAvailability from "./HeroAvailability";
 import HeroBadge from "./components/HeroBadge";
 import HeroHeading from "./components/HeroHeading";
 import HeroDescription from "./components/HeroDescription";
@@ -18,13 +17,9 @@ export default function Hero() {
     <Section className="relative overflow-hidden pt-24 pb-12">
       <HeroBackground />
 
-      {/* Hero */}
       <div className="grid items-start gap-14 lg:grid-cols-[1fr_0.95fr]">
-        {/* Left */}
         <div className="flex h-full flex-col">
           <div className="space-y-7">
-            <HeroAvailability />
-
             <HeroBadge />
 
             <HeroHeading />
@@ -34,7 +29,6 @@ export default function Hero() {
             <HeroActions />
           </div>
 
-          {/* Bottom aligned */}
           <div className="mt-auto pt-10 space-y-8">
             <HeroTechRibbon />
 
@@ -42,13 +36,11 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right */}
         <HeroParallax>
           <HeroEngineeringCard />
         </HeroParallax>
       </div>
 
-      {/* Stats */}
       <div className="mt-10">
         <HeroStats />
       </div>

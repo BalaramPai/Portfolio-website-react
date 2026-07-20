@@ -1,17 +1,14 @@
-import TypingCursor from "./TypingCursor";
+import type { Project } from "../../../../../types/projects";
+
 import JsonLine from "./JsonLine";
+import TypingCursor from "./TypingCursor";
 
-const lines = [
-  { keyName: "engineer", value: '"Balaram Pai"' },
-  { keyName: "focus", value: '["Distributed Systems", "Backend"]' },
-  { keyName: "project", value: '"Distributed Task Execution Platform"' },
-  { keyName: "scheduler", value: '"Priority Queue"' },
-  { keyName: "workers", value: "4" },
-  { keyName: "database", value: '"PostgreSQL"' },
-  { keyName: "status", value: '"RUNNING"' },
-];
+interface JsonViewerProps {
+  project: Project;
+}
 
-export default function JsonViewer() {
+export default function JsonViewer({ project }: JsonViewerProps) {
+
   return (
     <div className="overflow-hidden rounded-xl border border-white/5 bg-[#09101D]">
       <div className="flex items-center justify-between border-b border-white/5 px-4 py-2.5">
@@ -31,7 +28,7 @@ export default function JsonViewer() {
       <div className="space-y-0.5 p-4 font-mono text-[14px]">
         <p className="text-slate-500">{"{"}</p>
 
-        {lines.map((line) => (
+        {project.payload.map((line) => (
           <JsonLine
             key={line.keyName}
             keyName={line.keyName}

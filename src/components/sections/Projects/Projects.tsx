@@ -1,4 +1,4 @@
-import { PROJECTS } from "../../../constants/projects";
+import { PROJECTS } from "../../../constants/project";
 import Card from "../../common/Card";
 import { H2, Body } from "../../common/Typography";
 import Section from "../../layout/Section";

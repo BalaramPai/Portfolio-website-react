@@ -1,31 +1,31 @@
 import { AnimatePresence, motion } from "framer-motion";
-import useLiveMetrics from "../../../../../hooks/useLiveMetrics";
+import { PROFILE } from "../../../../../constants/profile";
+import useLeetcodeStats from "../../../../../hooks/useLeetcodeStats";
 
 export default function MetricsGrid() {
-  const metrics = useLiveMetrics();
+  const { solved } = useLeetcodeStats();
 
   const cards = [
     {
-      label: "Workers",
-      value: metrics.workers,
+      label: "Projects",
+      value: PROFILE.projects,
     },
     {
-      label: "Queue",
-      value: metrics.queue,
+      label: "DSA Solved",
+      value: solved,
     },
     {
-      label: "Latency",
-      value: `${metrics.latency}ms`,
+      label: "Certifications",
+      value: PROFILE.certifications,
     },
     {
-      label: "Retries",
-      value: metrics.retries,
+      label: "Research Papers",
+      value: PROFILE.researchPapers,
     },
   ];
 
   return (
     <div className="grid grid-cols-2 gap-4">
-
       {cards.map((card) => (
         <div
           key={card.label}
@@ -36,7 +36,6 @@ export default function MetricsGrid() {
           </p>
 
           <AnimatePresence mode="wait">
-
             <motion.h3
               key={String(card.value)}
               initial={{ opacity: 0, y: 8 }}
@@ -47,12 +46,9 @@ export default function MetricsGrid() {
             >
               {card.value}
             </motion.h3>
-
           </AnimatePresence>
-
         </div>
       ))}
-
     </div>
   );
 }
