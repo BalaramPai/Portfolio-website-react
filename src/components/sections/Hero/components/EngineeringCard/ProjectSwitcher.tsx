@@ -30,44 +30,28 @@ export default function ProjectSwitcher() {
   const project = projects[index];
 
   return (
-    <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-5">
-
-      <p className="mb-3 text-xs uppercase tracking-[0.3em] text-slate-500">
+    <div className="rounded-xl border border-white/5 bg-white/[0.03] p-4">
+      <p className="mb-2 text-[11px] uppercase tracking-[0.28em] text-slate-500">
         Current Project
       </p>
 
       <AnimatePresence mode="wait">
-
         <motion.div
           key={project.title}
-          initial={{
-            opacity: 0,
-            y: 12,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          exit={{
-            opacity: 0,
-            y: -12,
-          }}
-          transition={{
-            duration: 0.35,
-          }}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.3 }}
         >
-          <h2 className="text-xl font-bold text-white">
+          <h2 className="text-lg font-bold text-white">
             {project.title}
           </h2>
 
           <div
-            className={`mt-4 h-1.5 rounded-full bg-gradient-to-r ${project.color}`}
+            className={`mt-3 h-1 rounded-full bg-gradient-to-r ${project.color}`}
           />
-
         </motion.div>
-
       </AnimatePresence>
-
     </div>
   );
 }

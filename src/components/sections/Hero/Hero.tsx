@@ -15,27 +15,31 @@ import HeroBackground from "./components/HeroBackground";
 
 export default function Hero() {
   return (
-    <Section className="relative overflow-hidden pt-24 pb-10">
+    <Section className="relative overflow-hidden pt-24 pb-12">
       <HeroBackground />
-      <div className="grid items-start gap-14 lg:grid-cols-2">
+
+      {/* Hero */}
+      <div className="grid items-start gap-14 lg:grid-cols-[1fr_0.95fr]">
         {/* Left */}
-        <div className="space-y-7 pt-10">
-          <HeroAvailability />
+        <div className="flex h-full flex-col">
+          <div className="space-y-7">
+            <HeroAvailability />
 
-          <HeroBadge />
+            <HeroBadge />
 
-          <HeroHeading />
+            <HeroHeading />
 
-          <HeroDescription />
+            <HeroDescription />
 
-      <div className="mt-14 space-y-9">
-  <HeroActions />
+            <HeroActions />
+          </div>
 
-  <div className="flex items-end justify-between gap-8">
-    <HeroTechRibbon />
-    <SocialLinks />
-  </div>
-</div>
+          {/* Bottom aligned */}
+          <div className="mt-auto pt-10 space-y-8">
+            <HeroTechRibbon />
+
+            <SocialLinks />
+          </div>
         </div>
 
         {/* Right */}
@@ -44,10 +48,10 @@ export default function Hero() {
         </HeroParallax>
       </div>
 
-      <div className="mt-16">
-    <HeroStats />
-</div>
-
+      {/* Stats */}
+      <div className="mt-10">
+        <HeroStats />
+      </div>
     </Section>
   );
 }
