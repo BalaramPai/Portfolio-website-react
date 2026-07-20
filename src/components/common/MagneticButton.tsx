@@ -4,11 +4,13 @@ import type { MouseEvent } from "react";
 type MagneticButtonProps = {
   children: React.ReactNode;
   variant?: "primary" | "secondary";
+  onClick?: () => void;
 };
 
 export default function MagneticButton({
   children,
   variant = "primary",
+  onClick,
 }: MagneticButtonProps) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -40,17 +42,23 @@ export default function MagneticButton({
 
   return (
     <motion.button
+      type="button"
+      onClick={onClick}
       style={{
         x: mouseX,
         y: mouseY,
       }}
       onMouseMove={handleMove}
       onMouseLeave={reset}
+      whileHover={{
+    y: -3,
+    scale: 1.02,
+  }}
       whileTap={{ scale: 0.97 }}
       className={`relative overflow-hidden rounded-2xl px-8 py-4 text-base font-semibold transition-all duration-300 ${
         variant === "primary"
           ? "bg-blue-600 text-white shadow-[0_15px_40px_rgba(37,99,235,0.35)]"
-          : "border border-white/10 bg-white/5 text-white backdrop-blur-md"
+          : "border border-white/10 bg-white/5 text-white backdrop-blur-md hover:border-blue-400/50 hover:bg-blue-500/10 hover:shadow-[0_10px_30px_rgba(59,130,246,0.20)]"
       }`}
     >
       <motion.div

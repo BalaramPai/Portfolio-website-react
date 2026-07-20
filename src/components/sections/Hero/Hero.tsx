@@ -8,7 +8,6 @@ import HeroDescription from "./components/HeroDescription";
 import HeroActions from "./components/HeroActions";
 import HeroTechRibbon from "./HeroTechRibbon";
 import HeroEngineeringCard from "./components/HeroEngineeringCard";
-import HeroStats from "./components/HeroStats";
 import HeroParallax from "./components/HeroParallax";
 import HeroBackground from "./components/HeroBackground";
 
@@ -18,7 +17,7 @@ export default function Hero() {
       <HeroBackground />
 
       <div className="grid items-start gap-14 lg:grid-cols-[1fr_0.95fr]">
-        <div className="flex h-full flex-col">
+        <div className="flex flex-col">
           <div className="space-y-7">
             <HeroBadge />
 
@@ -41,9 +40,6 @@ export default function Hero() {
         </HeroParallax>
       </div>
 
-      <div className="mt-10">
-        <HeroStats />
-      </div>
     </Section>
   );
 }
