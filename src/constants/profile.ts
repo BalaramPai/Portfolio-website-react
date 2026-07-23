@@ -1,6 +1,6 @@
 export const PROFILE = {
   projects: 15,
-  dsaSolved: 132,
+  dsaSolved: 136,
   certifications: 8,
   researchPapers: 1,
 };
