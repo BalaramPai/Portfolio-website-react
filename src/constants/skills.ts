@@ -1,6 +1,8 @@
 export const SKILLS = [
   {
     category: "Backend",
+    subtitle: "Building scalable APIs & distributed systems",
+    accent: "blue",
     technologies: [
       "Python",
       "FastAPI",
@@ -12,6 +14,8 @@ export const SKILLS = [
   },
   {
     category: "Frontend",
+    subtitle: "Creating modern responsive user interfaces",
+    accent: "purple",
     technologies: [
       "React",
       "TypeScript",
@@ -22,6 +26,8 @@ export const SKILLS = [
   },
   {
     category: "Tools",
+    subtitle: "Development workflow & deployment",
+    accent: "emerald",
     technologies: [
       "Git",
       "GitHub",
@@ -33,6 +39,8 @@ export const SKILLS = [
   },
   {
     category: "Concepts",
+    subtitle: "Core computer science foundations",
+    accent: "amber",
     technologies: [
       "DSA",
       "REST APIs",

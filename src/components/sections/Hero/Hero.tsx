@@ -13,7 +13,9 @@ import HeroBackground from "./components/HeroBackground";
 
 export default function Hero() {
   return (
-    <Section className="relative overflow-hidden pt-24 pb-12">
+    <Section
+  className="relative overflow-hidden pt-36 pb-12 lg:pt-35"
+>
       <HeroBackground />
 
       <div className="grid items-start gap-14 lg:grid-cols-[1fr_0.95fr]">

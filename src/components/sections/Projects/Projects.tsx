@@ -5,7 +5,10 @@ import Section from "../../layout/Section";
 
 export default function Projects() {
   return (
-    <Section id="projects">
+    <Section
+    id="projects"
+    spacing="sm"
+>
       <H2 className="mb-12">Featured Projects</H2>
 
       <div className="grid gap-8">
