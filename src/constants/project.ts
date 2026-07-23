@@ -2,56 +2,6 @@ import type { Project } from "../types/project";
 
 export const PROJECTS: Project[] = [
   {
-    title: "ERP Maintenance System",
-
-    subtitle: "Enterprise Asset Management",
-
-    status: "Completed",
-
-    description:
-      "SAP PM inspired enterprise maintenance platform developed during my internship featuring React Native, Flask and MongoDB.",
-
-    role: "Full Stack Developer",
-
-    duration: "6 Months",
-
-    github: "#",
-
-    demo: "#",
-
-    tech: [
-      "React Native",
-      "Flask",
-      "MongoDB",
-      "JWT",
-      "REST APIs",
-    ],
-
-    features: [
-      "Maintenance Orders",
-      "Parts Requisition",
-      "Operator Toolkit",
-      "JWT Authentication",
-      "Offline Support",
-    ],
-
-    metrics: [
-      {
-        label: "Modules",
-        value: "15+",
-      },
-      {
-        label: "Collections",
-        value: "20+",
-      },
-      {
-        label: "APIs",
-        value: "70+",
-      },
-    ],
-  },
-
-  {
     title: "Distributed Task Execution Platform",
 
     subtitle: "Distributed Scheduling Platform",
@@ -65,7 +15,7 @@ export const PROJECTS: Project[] = [
 
     duration: "Personal Project",
 
-    github: "#",
+    github: "https://github.com/BalaramPai/distributed-task-execution-platform",
 
     demo: "#",
 
@@ -102,6 +52,56 @@ export const PROJECTS: Project[] = [
   },
 
   {
+    title: "ERP Maintenance System",
+
+    subtitle: "Enterprise Asset Management",
+
+    status: "In-Progress",
+
+    description:
+      "SAP PM inspired enterprise maintenance platform developed during my internship featuring React Native, Flask and MongoDB.",
+
+    role: "Full Stack Developer",
+
+    duration: "6 Months",
+
+    github: "https://github.com/BalaramPai?tab=stars",
+
+    demo: "#",
+
+    tech: [
+      "React Native",
+      "Flask",
+      "MongoDB",
+      "JWT",
+      "REST APIs",
+    ],
+
+    features: [
+      "Maintenance Orders",
+      "Parts Requisition",
+      "Operator Toolkit",
+      "JWT Authentication",
+      "Offline Support",
+    ],
+
+    metrics: [
+      {
+        label: "Modules",
+        value: "15+",
+      },
+      {
+        label: "Collections",
+        value: "10+",
+      },
+      {
+        label: "APIs",
+        value: "70+",
+      },
+    ],
+  },
+
+  {
     title: "Developer Portfolio",
 
     subtitle: "Interactive Engineering Portfolio",
@@ -115,7 +115,7 @@ export const PROJECTS: Project[] = [
 
     duration: "2026",
 
-    github: "#",
+    github: "https://github.com/BalaramPai/Portfolio-website-react",
 
     demo: "#",
 

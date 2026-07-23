@@ -64,7 +64,6 @@ export default function ProjectCard({
       <div className="mt-10">
         <ProjectLinks
           github={project.github}
-          demo={project.demo}
         />
       </div>
 

@@ -7,7 +7,7 @@ export interface Project {
   title: string;
   subtitle: string;
 
-  status: "Completed" | "Active" | "Deployed";
+  status: "Completed" | "Active" | "Deployed" | "In-Progress";
 
   description: string;
 

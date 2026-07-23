@@ -3,19 +3,19 @@ import resume from "../../../../assets/resume/Balaram_Pai_cv.pdf";
 
 export default function HeroActions() {
 
-  function downloadResume() {
-    const link = document.createElement("a");
+  // function downloadResume() {
+  //   const link = document.createElement("a");
 
-    link.href = resume;
+  //   link.href = resume;
 
-    link.download = "Balaram_Pai_cv.pdf";
+  //   link.download = "Balaram_Pai_cv.pdf";
 
-    document.body.appendChild(link);
+  //   document.body.appendChild(link);
 
-    link.click();
+  //   link.click();
 
-    document.body.removeChild(link);
-  }
+  //   document.body.removeChild(link);
+  // }
 
   return (
     <div className="flex items-center gap-5 pt-3">
@@ -27,13 +27,12 @@ export default function HeroActions() {
       </MagneticButton>
 
       <MagneticButton
-        variant="secondary"
-        onClick={downloadResume}
-      >
-
-        Download Resume
-
-      </MagneticButton>
+  href={resume}
+  download="Balaram_Pai_cv.pdf"
+  variant="secondary"
+>
+  Download Resume
+</MagneticButton>
 
     </div>
   );

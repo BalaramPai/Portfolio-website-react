@@ -1,5 +1,5 @@
 type ProjectStatusProps = {
-  status: "Completed" | "Active" | "Deployed";
+  status: "Completed" | "Active" | "Deployed" | "In-Progress";
 };
 
 export default function ProjectStatus({
@@ -14,6 +14,9 @@ export default function ProjectStatus({
 
     Deployed:
       "border-cyan-500/20 bg-cyan-500/10 text-cyan-400",
+    
+      "In-Progress":
+    "border-amber-500/20 bg-amber-500/10 text-amber-400",
   };
 
   return (

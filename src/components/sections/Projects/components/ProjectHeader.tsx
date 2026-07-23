@@ -3,7 +3,7 @@ import ProjectStatus from "./ProjectStatus";
 type Props = {
   title: string;
   subtitle: string;
-  status: "Completed" | "Active" | "Deployed";
+  status: "Completed" | "Active" | "Deployed" | "In-Progress";
 };
 
 export default function ProjectHeader({

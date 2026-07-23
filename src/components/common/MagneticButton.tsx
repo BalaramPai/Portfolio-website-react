@@ -1,16 +1,21 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import type { MouseEvent } from "react";
+import type { MouseEvent, ReactNode } from "react";
 
 type MagneticButtonProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   variant?: "primary" | "secondary";
-  onClick?: () => void;
+
+  href?: string;
+  target?: string;
+  download?: string;
 };
 
 export default function MagneticButton({
   children,
   variant = "primary",
-  onClick,
+  href,
+  target,
+  download,
 }: MagneticButtonProps) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -25,7 +30,9 @@ export default function MagneticButton({
     damping: 12,
   });
 
-  function handleMove(e: MouseEvent<HTMLButtonElement>) {
+  function handleMove(
+    e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>
+  ) {
     const rect = e.currentTarget.getBoundingClientRect();
 
     const offsetX = e.clientX - rect.left - rect.width / 2;
@@ -40,27 +47,30 @@ export default function MagneticButton({
     y.set(0);
   }
 
-  return (
-    <motion.button
-      type="button"
-      onClick={onClick}
-      style={{
-        x: mouseX,
-        y: mouseY,
-      }}
-      onMouseMove={handleMove}
-      onMouseLeave={reset}
-      whileHover={{
-    y: -3,
-    scale: 1.02,
-  }}
-      whileTap={{ scale: 0.97 }}
-      className={`relative overflow-hidden rounded-2xl px-8 py-4 text-base font-semibold transition-all duration-300 ${
-        variant === "primary"
-          ? "bg-blue-600 text-white shadow-[0_15px_40px_rgba(37,99,235,0.35)]"
-          : "border border-white/10 bg-white/5 text-white backdrop-blur-md hover:border-blue-400/50 hover:bg-blue-500/10 hover:shadow-[0_10px_30px_rgba(59,130,246,0.20)]"
-      }`}
-    >
+  const classes = `
+relative
+overflow-hidden
+rounded-2xl
+px-8
+py-4
+text-base
+font-semibold
+transition-all
+duration-300
+cursor-pointer
+
+hover:-translate-y-1
+hover:scale-[1.02]
+
+${
+  variant === "primary"
+    ? "bg-blue-600 text-white shadow-[0_15px_40px_rgba(37,99,235,0.35)] hover:bg-blue-500"
+    : "border border-white/10 bg-white/5 text-white backdrop-blur-md hover:border-blue-500/60 hover:bg-white/10"
+}
+`;
+
+  const content = (
+    <>
       <motion.div
         className="absolute inset-0 bg-white/10"
         initial={{ x: "-120%" }}
@@ -71,9 +81,42 @@ export default function MagneticButton({
         }}
       />
 
-      <span className="relative z-10">
-        {children}
-      </span>
+      <span className="relative z-10">{children}</span>
+    </>
+  );
+
+  if (href) {
+    return (
+      <motion.a
+        href={href}
+        target={target}
+        download={download}
+        style={{
+          x: mouseX,
+          y: mouseY,
+        }}
+        onMouseMove={handleMove}
+        onMouseLeave={reset}
+        whileTap={{ scale: 0.97 }}
+        className={classes}
+      >
+        {content}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.button
+      style={{
+        x: mouseX,
+        y: mouseY,
+      }}
+      onMouseMove={handleMove}
+      onMouseLeave={reset}
+      whileTap={{ scale: 0.97 }}
+      className={classes}
+    >
+      {content}
     </motion.button>
   );
 }
