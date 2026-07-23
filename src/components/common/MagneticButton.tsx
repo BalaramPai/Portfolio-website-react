@@ -1,5 +1,9 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import type { MouseEvent, ReactNode } from "react";
+import type {
+  MouseEvent,
+  ReactNode,
+  ButtonHTMLAttributes,
+} from "react";
 
 type MagneticButtonProps = {
   children: ReactNode;
@@ -8,14 +12,21 @@ type MagneticButtonProps = {
   href?: string;
   target?: string;
   download?: string;
-};
+
+  onClick?: () => void;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function MagneticButton({
   children,
   variant = "primary",
+
   href,
   target,
   download,
+
+  onClick,
+  type = "button",
+  disabled = false,
 }: MagneticButtonProps) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -33,6 +44,8 @@ export default function MagneticButton({
   function handleMove(
     e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>
   ) {
+    if (disabled) return;
+
     const rect = e.currentTarget.getBoundingClientRect();
 
     const offsetX = e.clientX - rect.left - rect.width / 2;
@@ -62,6 +75,9 @@ cursor-pointer
 hover:-translate-y-1
 hover:scale-[1.02]
 
+disabled:opacity-60
+disabled:cursor-not-allowed
+
 ${
   variant === "primary"
     ? "bg-blue-600 text-white shadow-[0_15px_40px_rgba(37,99,235,0.35)] hover:bg-blue-500"
@@ -71,15 +87,17 @@ ${
 
   const content = (
     <>
-      <motion.div
-        className="absolute inset-0 bg-white/10"
-        initial={{ x: "-120%" }}
-        whileHover={{ x: "120%" }}
-        transition={{ duration: 0.7 }}
-        style={{
-          skewX: "-25deg",
-        }}
-      />
+      {!disabled && (
+        <motion.div
+          className="absolute inset-0 bg-white/10"
+          initial={{ x: "-120%" }}
+          whileHover={{ x: "120%" }}
+          transition={{ duration: 0.7 }}
+          style={{
+            skewX: "-25deg",
+          }}
+        />
+      )}
 
       <span className="relative z-10">{children}</span>
     </>
@@ -107,13 +125,16 @@ ${
 
   return (
     <motion.button
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
       style={{
         x: mouseX,
         y: mouseY,
       }}
       onMouseMove={handleMove}
       onMouseLeave={reset}
-      whileTap={{ scale: 0.97 }}
+      whileTap={{ scale: disabled ? 1 : 0.97 }}
       className={classes}
     >
       {content}

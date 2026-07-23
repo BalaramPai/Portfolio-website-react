@@ -72,7 +72,7 @@ export default function AboutCard() {
 
             <div>
               <p className="text-sm font-medium text-white">
-                CGPA: 8.XX / 10
+                CGPA: 9.5 / 10
               </p>
 
               <p className="text-xs text-slate-500">

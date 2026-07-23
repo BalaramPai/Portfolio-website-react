@@ -14,6 +14,7 @@ import HeroBackground from "./components/HeroBackground";
 export default function Hero() {
   return (
     <Section
+    id="home"
   className="relative overflow-hidden pt-36 pb-12 lg:pt-35"
 >
       <HeroBackground />

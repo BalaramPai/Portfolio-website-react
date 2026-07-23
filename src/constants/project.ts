@@ -79,10 +79,10 @@ export const PROJECTS: Project[] = [
 
     features: [
       "Maintenance Orders",
-      "Parts Requisition",
-      "Operator Toolkit",
+      "Ticket Management",
+      "WebFlow and OperatorFlow",
       "JWT Authentication",
-      "Offline Support",
+      "Organisation Setup",
     ],
 
     metrics: [

@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import useScrollPosition from "../../hooks/useScrollPosition";
 
@@ -27,7 +26,8 @@ export default function Navbar() {
             : "border-transparent bg-transparent"
         }`}
       >
-        <motion.div
+        <motion.a
+          href="#home"
           whileHover={{
             scale: 1.03,
           }}
@@ -40,16 +40,16 @@ export default function Navbar() {
           <p className="text-xs uppercase tracking-[0.35em] text-slate-500">
             Software Engineer
           </p>
-        </motion.div>
+        </motion.a>
 
         <div className="flex items-center gap-3">
 
-          <NavItem to="/">
+          <NavItem href="#home">
             Home
           </NavItem>
 
-          <NavItem to="/projects">
-            Projects
+          <NavItem href="#contact">
+            Contact
           </NavItem>
 
         </div>
@@ -59,30 +59,23 @@ export default function Navbar() {
 }
 
 type NavItemProps = {
-  to: string;
+  href: string;
   children: React.ReactNode;
 };
 
 function NavItem({
-  to,
+  href,
   children,
 }: NavItemProps) {
   return (
-    <NavLink to={to}>
-      {({ isActive }) => (
-        <motion.div
-          whileHover={{
-            y: -2,
-          }}
-          className={`rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-300 ${
-            isActive
-              ? "bg-white/10 text-white"
-              : "text-slate-400 hover:bg-white/5 hover:text-white"
-          }`}
-        >
-          {children}
-        </motion.div>
-      )}
-    </NavLink>
+    <motion.a
+      href={href}
+      whileHover={{
+        y: -2,
+      }}
+      className="rounded-xl px-5 py-3 text-sm font-semibold text-slate-400 transition-all duration-300 hover:bg-white/5 hover:text-white"
+    >
+      {children}
+    </motion.a>
   );
 }
